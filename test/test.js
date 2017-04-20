@@ -3,7 +3,9 @@ var soundplayer = require("../index.js")
 var options = {
     "filename": "preview.mp3",
     gain: 100,
-
+    debug: true,
+    player: "afplay",
+    device: "plughw0:0"
 }
 var player = new soundplayer(options)
 
