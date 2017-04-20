@@ -1,17 +1,21 @@
 {
-  "name": "oundplayer",
-  "version": "1.0.0",
+  "name": "sound-player",
+  "version": "1.0.1",
   "description": "Nodejs wrapper for soundplayers afplay (mac), aplay, mpg321 and mpg123",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bugs": {
+    "url": "https://github.com/victordibia/soundplayer/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maciek134/node-mpg123.git"
+    "url": "https://github.com/victordibia/soundplayer.git"
   },
   "keywords": [
     "aplay",
+    "afplay",
     "mpg321",
     "mpg123"
   ],
