@@ -7,14 +7,18 @@ var options = {
     player: "afplay",
     device: "plughw0:0"
 }
-var player = new soundplayer(options)
 
-console.log("bingo")
+var player = new soundplayer(options)
 player.play();
+
 player.on('error', function() {
     console.log('Error');
 });
 
 player.on('complete', function() {
     console.log('Done with playback!');
+});
+
+player.on('error', function(err) {
+    console.log('Error occurred:', err);
 });

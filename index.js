@@ -57,6 +57,11 @@ module.exports.prototype.play = function() {
             self.emit('complete');
         }
     });
+
+    this.process.on('error', function(err) {
+        self.emit('error', err);
+        if (self.options.debug) console.log('Error playing file ' + err);
+    });
 };
 
 module.exports.prototype.stop = function() {
