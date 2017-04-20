@@ -28,7 +28,7 @@ var player = new soundplayer("path/to/file.mpg")
 
 
 
-> Note: On a mac, 'afplay' is selected by default if no player is selected. `aplay` is selected by default on other os types.
+> Note: On a mac, 'afplay' is selected by default if no player parameter is provided. `aplay` is selected by default on other OS types.
 
 
 ## Installation
@@ -88,4 +88,7 @@ player.on('error', function(err) {
 
 What is my audio device id?
 ------------
-You can
+You can check your audio device using the following command (you need aplay installed.)
+```
+aplay -L
+```
