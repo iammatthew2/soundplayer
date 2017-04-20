@@ -6,6 +6,7 @@ Nodejs soundplayer wrapper for several command line sound players `AFPLAY`(mac) 
 
 This library also attempts to provide additional support for parameters such as specifying `audio device` and `gain` (volume). These are specified using the `options` parameter.
 
+
 ```javascript
 // All options
 var options = {
@@ -15,9 +16,20 @@ var options = {
     player: "afplay",
     device: "plughw0:0"
 }
+
+// instantiation with options
+var player = require("sound-player")
+var player = new soundplayer(options)  
+
+// instantiation with only filepath
+var player = require("sound-player")
+var player = new soundplayer("path/to/file.mpg")
 ```
 
-Note: `aplay` does not support `gain` and `device` options.
+
+
+> Note: On a mac, 'afplay' is selected by default if no player is selected. `aplay` is selected by default on other os types.
+
 
 ## Installation
 -----------
@@ -51,6 +63,7 @@ Example Usage
 ------------
 
 ````javascript
+// With full options
 var soundplayer = require("sound-player");
 var options = {
     "filename": "preview.mp3",

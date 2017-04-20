@@ -22,6 +22,9 @@ var isMac = require('os').type() == 'Darwin' || require('os').type().indexOf('Wi
  */
 module.exports = function SoundPlayer(options) {
     events.EventEmitter.call(this);
+    options = typeof options === 'string' ? {
+        "filename": options
+    } : options; // sent in a string argument with filename only? convert to options json.
     this.options = options || {};
     this.options.filename = options.filename || "";
     this.options.gain = options.gain || 100;
