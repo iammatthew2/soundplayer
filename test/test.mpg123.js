@@ -11,10 +11,6 @@ var options = {
 var player = new soundplayer(options)
 player.play();
 
-player.on('error', function() {
-    console.log('Error');
-});
-
 player.on('complete', function() {
     console.log('Done with playback!');
 });

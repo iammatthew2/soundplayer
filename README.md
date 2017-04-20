@@ -2,8 +2,9 @@ Sound Player
 ===========
 
 Nodejs soundplayer wrapper for several command line sound players `AFPLAY`(mac) `APLAY`, `MPG321`, `MPG123`). It is important to note that each of these players need to be installed before they can be used by the lib.
+> Tip: Use 'aplay' to play '.wav' audio files, 'mpg321' and 'mpg123' for playing 'mp3' files.
 
-This library also attempts to provide additional support for parameters such as specifying audio device and gain (volume). These are specified using the `options` parameter.
+This library also attempts to provide additional support for parameters such as specifying `audio device` and `gain` (volume). These are specified using the `options` parameter.
 
 ```javascript
 // All options
@@ -18,43 +19,60 @@ var options = {
 
 Note: `aplay` does not support `gain` and `device` options.
 
-Installation
+## Installation
 -----------
+
+Great idea to update your OS
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 ### Debian/Ubuntu - MPG123 ###
 ````
 sudo apt-get install mpg123
-npm install soundplayer
+npm install sound-player
 ````
 
 ### Debian/Ubuntu - MPG321 ###
 ````
 sudo apt-get install mpg321
-npm install soundplayer
+npm install sound-player
+````
+
+### Debian/Ubuntu - APLAY ###
+````
+sudo apt-get install alsa-base alsa-utils
+npm install sound-player
 ````
 
 Example Usage
 ------------
 
 ````javascript
-var soundplayer = require("soundplayer")
-
+var soundplayer = require("sound-player");
 var options = {
     "filename": "preview.mp3",
     gain: 100,
     debug: true,
-    player: "afplay",
-    device: "plughw0:0"
+    player: "aplay", // "afplay" "aplay" "mpg123" "mpg321"
+    device: "plughw:0,0"   //
 }
-var player = new soundplayer(options).play();
+
+var player = new soundplayer(options)
+player.play();
 
 player.on('complete', function() {
     console.log('Done with playback!');
 });
 
+player.on('error', function(err) {
+    console.log('Error occurred:', err);
+});
+
 ````
 
-It's simple as that.
-
-Documentation
+What is my audio device id?
 ------------
-In progress.
+You can
