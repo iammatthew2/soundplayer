@@ -27,7 +27,7 @@ module.exports = function SoundPlayer(options) {
     this.options.gain = options.gain || 100;
     this.options.device = options.device || "plughw:0,0";
     this.options.debug = options.debug || false;
-    this.options.player = options.player || (isMac) ? "afplay" : "aplay";
+    this.options.player = options.player || ((isMac) ? "afplay" : "aplay");
 };
 
 util.inherits(module.exports, events.EventEmitter);
@@ -35,9 +35,10 @@ util.inherits(module.exports, events.EventEmitter);
 module.exports.prototype.play = function() {
     this.stopped = false;
 
-    console.log(this.options)
-
     var self = this;
+
+    if (self.options.debug) console.log(this.options)
+
     switch (this.options.player) {
         case "aplay":
             this.process = spawn('aplay', [this.options.filename, '-D', this.options.device]);
