@@ -1,7 +1,7 @@
 {
-  "name": "node-mpg123",
-  "version": "1.0.2-0023",
-  "description": "JS based mpg123 wrapper.",
+  "name": "oundplayer",
+  "version": "1.0.0",
+  "description": "Nodejs wrapper for soundplayers afplay (mac), aplay, mpg321 and mpg123",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,10 @@
     "url": "https://github.com/maciek134/node-mpg123.git"
   },
   "keywords": [
+    "aplay",
+    "mpg321",
     "mpg123"
   ],
-  "author": "Maciej Sopyło <maciek134@gmail.com>",
+  "author": "Victor Dibia <victor.dibia@gmail.com>",
   "license": "MIT"
 }

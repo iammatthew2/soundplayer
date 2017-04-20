@@ -1,42 +1,53 @@
-node-mpg123
+Sound Player
 ===========
 
-Written entirely in JS mpg123 (http://www.mpg123.de/) wrapper for Node.js.
+Nodejs soundplayer wrapper supporting several command line sound players (`AFPLAY`(mac) `APLAY`, `MPG321`, `MPG123`). It is important to note that each of these players need to be installed before they can be used by the lib.
+
+This library also attempts to provide additional support for parameters such as specifying audio device and gain (volume). These are specified using the `options` parameter.
+
+```
+var options = {
+    "filename": "preview.mp3",
+    gain: 100,
+    debug: true,
+    player: "afplay",
+    device: "plughw0:0"
+}
+```
 
 Installation
 -----------
-### Debian/Ubuntu ###
+### Debian/Ubuntu - MPG123 ###
 ````
 sudo apt-get install mpg123
-npm install node-mpg123
+npm install soundplayer
+````
+
+### Debian/Ubuntu - MPG321 ###
+````
+sudo apt-get install mpg321
+npm install soundplayer
 ````
 
 Example Usage
 ------------
 
 ````javascript
-var Sound = require('node-mpg123');
+var soundplayer = require("soundplayer")
 
-// fire and forget:
-new Sound('/path/to/the/file/filename.mp3').play();
+var options = {
+    "filename": "preview.mp3",
+    gain: 100,
+    debug: true,
+    player: "afplay",
+    device: "plughw0:0"
+}
+var player = new soundplayer(options).play();
 
-
-// with ability to pause/resume:
-var music = new Sound('/path/to/the/file/filename.mp3');
-music.play();
-
-setTimeout(function () {
-	music.pause(); // pause the music after five seconds
-}, 5000);
-
-setTimeout(function () {
-	music.resume(); // and resume it two seconds after pausing
-}, 7000);
-
-// you can also listen for various callbacks:
-music.on('complete' function () {
-	console.log('Done with playback!');
+player.on('complete', function() {
+    console.log('Done with playback!');
 });
+
 ````
 
 It's simple as that.
