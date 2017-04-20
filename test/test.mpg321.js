@@ -4,8 +4,8 @@ var options = {
     "filename": "preview.mp3",
     gain: 100,
     debug: true,
-    player: null, // "afplay" "aplay" "mpg123" "mpg321"
-    device: "plughw0:0"
+    player: "mpg123", // "afplay" "aplay" "mpg123" "mpg321"
+    device: "plughw:0,0"
 }
 
 var player = new soundplayer(options)

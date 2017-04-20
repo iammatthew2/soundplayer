@@ -25,7 +25,7 @@ module.exports = function SoundPlayer(options) {
     this.options = options || {};
     this.options.filename = options.filename || "";
     this.options.gain = options.gain || 100;
-    this.options.device = options.device || "plughw:1,0";
+    this.options.device = options.device || "plughw:0,0";
     this.options.debug = options.debug || false;
     this.options.player = options.player || (isMac) ? "afplay" : "aplay";
 };
