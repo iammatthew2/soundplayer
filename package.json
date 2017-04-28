@@ -1,6 +1,6 @@
 {
   "name": "sound-player",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Nodejs wrapper for soundplayers afplay (mac), aplay, mpg321 and mpg123",
   "main": "index.js",
   "scripts": {

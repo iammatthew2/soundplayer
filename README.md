@@ -10,7 +10,7 @@ This library also attempts to provide additional support for parameters such as 
 ```javascript
 // All options
 var options = {
-    "filename": "preview.mp3",
+    filename: "preview.mp3",
     gain: 100,
     debug: true,
     player: "afplay",
@@ -66,7 +66,7 @@ Example Usage
 // With full options
 var soundplayer = require("sound-player");
 var options = {
-    "filename": "preview.mp3",
+    filename: "preview.mp3",
     gain: 100,
     debug: true,
     player: "aplay", // "afplay" "aplay" "mpg123" "mpg321"
