@@ -55,6 +55,11 @@ module.exports.prototype.play = function() {
         case "mpg123":
             this.process = spawn('mpg123', [this.options.filename, '-g', this.options.gain, '-a', this.options.device]);
             break;
+        case "ffplay":
+            var vol = "'volume=" + this.options.gain / 100 + "'";
+            console.log(vol)
+            this.process = spawn('ffplay', [this.options.filename, '-nodisp']); //, '-volume', this.options.gain, '-a', this.options.device, '-nodisp']);
+            break;
     }
     this.process.on('exit', function(code, sig) {
         if (code !== null && sig === null) {
