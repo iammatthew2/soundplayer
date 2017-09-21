@@ -13,19 +13,31 @@ var options = {
     filename: "preview.mp3",
     gain: 100,
     debug: true,
-    player: "afplay",
+    player: "afplay",   // other supported players are 'aplay', 'mpg123', 'mpg321'
     device: "plughw0:0"
 }
 
 // instantiation with options
-var player = require("sound-player")
-var player = new soundplayer(options)  
+var soundplayer = require("sound-player")
+var player = new soundplayer(options)
+player.play() ;
 
 // instantiation with only filepath
-var player = require("sound-player")
+var soundplayer = require("sound-player")
 var player = new soundplayer("path/to/file.mpg")
+player.play() ;
 ```
 
+```javascript
+// Update player options *after* instantiating library
+options.player = 'mpg321' ;
+options.filename = 'newfile.mp3'
+player.setOptions(options) ;
+player.play() ;
+
+```
+
+See the tests folder for more samples.
 
 
 > Note: On a mac, 'afplay' is selected by default if no player parameter is provided. `aplay` is selected by default on other OS types.
