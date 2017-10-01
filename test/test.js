@@ -7,7 +7,8 @@ var soundplayer = require("../index.js")
 
 var options = {
   filename: "preview.mp3",
-  gain: 40
+  gain: 40,
+  debug: true
 }
 
 var player = new soundplayer(options)
@@ -20,7 +21,7 @@ player.on('complete', function() {
   setTimeout(function() {
     options.filename = options.filename == "preview.mp3" ? "preview.wav" : "preview.mp3";
     //player.setOptions();
-    player.play();
+    player.play(options);
   }, 3000)
 
 });
