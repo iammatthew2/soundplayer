@@ -19,7 +19,7 @@ player.on('complete', function() {
 
   setTimeout(function() {
     options.filename = options.filename == "preview.mp3" ? "preview.wav" : "preview.mp3";
-    player.setOptions(options);
+    //player.setOptions();
     player.play();
   }, 3000)
 

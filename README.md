@@ -31,11 +31,11 @@ player.play() ;
 ```javascript
 // Update player options *after* instantiating library
 options.player = 'mpg321' ;
-options.filename = 'newfile.mp3'
-player.setOptions(options) ;
-player.play() ;
+options.filename = 'newfile.mp3' 
+player.play(options) ;
 
 ```
+
 
 See the tests folder for more samples.
 

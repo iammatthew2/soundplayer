@@ -26,7 +26,7 @@ module.exports = function SoundPlayer(options) {
 };
 
 /*
-setup player options.
+setup player options. 
  */
 module.exports.prototype.setOptions = function(options) {
   //console.log(" == ", options)
@@ -43,7 +43,10 @@ module.exports.prototype.setOptions = function(options) {
 
 util.inherits(module.exports, events.EventEmitter);
 
-module.exports.prototype.play = function() {
+module.exports.prototype.play = function(options) {
+  if (typeof options !== 'undefined') {
+    this.setOptions(options);
+  }
   this.stopped = false;
 
   var self = this;
