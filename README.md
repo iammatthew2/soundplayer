@@ -1,7 +1,14 @@
 Sound Player
 ===========
 
-Nodejs soundplayer wrapper for several command line sound players `AFPLAY`(mac) `APLAY`, `MPG321`, `MPG123`). It is important to note that each of these players need to be installed before they can be used by the lib.
+Supports the following sound players
+- `AFPLAY`(mac)
+- `FFPLAY`
+- `APLAY`,
+- `MPG321`,
+- `MPG123`)
+
+Nodejs soundplayer wrapper for several command line sound players (above). It is important to note that each of these players need to be installed before they can be used by the lib.
 > Tip: Use 'aplay' to play '.wav' audio files, 'mpg321' and 'mpg123' for playing 'mp3' files.
 
 This library also attempts to provide additional support for parameters such as specifying `audio device` and `gain` (volume). These are specified using the `options` parameter.
@@ -31,7 +38,7 @@ player.play() ;
 ```javascript
 // Update player options *after* instantiating library
 options.player = 'mpg321' ;
-options.filename = 'newfile.mp3' 
+options.filename = 'newfile.mp3'
 player.play(options) ;
 
 ```

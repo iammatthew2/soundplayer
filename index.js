@@ -26,7 +26,7 @@ module.exports = function SoundPlayer(options) {
 };
 
 /*
-setup player options. 
+setup player options.
  */
 module.exports.prototype.setOptions = function(options) {
   //console.log(" == ", options)
@@ -51,7 +51,7 @@ module.exports.prototype.play = function(options) {
 
   var self = this;
 
-  if (self.options.debug) console.log(this.options)
+  if (self.options.debug) console.log("=========", this.options)
 
   switch (this.options.player) {
     case "aplay":
@@ -68,8 +68,10 @@ module.exports.prototype.play = function(options) {
       break;
     case "ffplay":
       var vol = "'volume=" + this.options.gain / 100 + "'";
-      console.log(vol)
-      this.process = spawn('ffplay', [this.options.filename, '-nodisp']); //, '-volume', this.options.gain, '-a', this.options.device, '-nodisp']);
+      //console.log(vol)
+      this.process = spawn('ffplay', [this.options.filename, '-nodisp', '-autoexit'], {
+        stdio: 'ignore'
+      }); //, '-volume', this.options.gain, '-a', this.options.device, '-nodisp']);
       break;
   }
   this.process.on('exit', function(code, sig) {
