@@ -9,7 +9,7 @@ var options = {
     filename: "preview.mp3",
     gain: 10,
     debug: true,
-    player: 'ffplay'
+    player: 'aplay'
 }
 
 var player = new soundplayer(options)

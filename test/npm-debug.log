@@ -19,7 +19,7 @@
 9 verbose stack Error: EISDIR: illegal operation on a directory, read
 9 verbose stack     at Error (native)
 10 verbose cwd /Users/victordibia/projects/publicgit/soundplayer/test
-11 error Darwin 16.4.0
+11 error Darwin 16.7.0
 12 error argv "/usr/local/bin/node" "/Users/victordibia/.npm-packages/bin/npm" "publish"
 13 error node v6.2.2
 14 error npm  v3.10.5
