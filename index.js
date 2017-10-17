@@ -29,10 +29,11 @@ module.exports = function SoundPlayer(options) {
 setup player options.
  */
 module.exports.prototype.setOptions = function(options) {
-    //console.log(" == ", options)
-    options = typeof options === 'string' ? {
-        filename: options
-    } : options; // sent in a string argument with filename only? convert to options json.
+    if ((typeof options === 'string')) { // sent in a string argument with filename only? convert to options json.
+        this.options.filename = options;
+        options = this.options;
+    }
+
     this.options = options || {};
     this.options.filename = options.filename || "";
     this.options.gain = options.gain || 100;
@@ -47,6 +48,8 @@ module.exports.prototype.play = function(options) {
     if (typeof options !== 'undefined') {
         this.setOptions(options);
     }
+
+    //console.log(this.options)
     this.stopped = false;
 
     var self = this;
@@ -69,7 +72,7 @@ module.exports.prototype.play = function(options) {
         case "ffplay":
             var vol = "'volume=" + this.options.gain / 100 + "'";
             //console.log(vol)
-            this.process = spawn('ffplay', [this.options.filename, '-nodisp', '-autoexit', '-volume', this.options.gain, ], {
+            this.process = spawn('ffplay', [this.options.filename, '-nodisp', '-autoexit', '-volume', this.options.gain], {
                 stdio: 'ignore'
             }); //, '-volume', this.options.gain, '-a', this.options.device, '-nodisp']);
             break;
