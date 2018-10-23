@@ -95,19 +95,20 @@ module.exports.prototype.play = function(options) {
 };
 
 module.exports.prototype.stop = function() {
+    if (this.stopped || !this.process) return;
     this.stopped = true;
     this.process.kill('SIGTERM');
     this.emit('stop');
 };
 
 module.exports.prototype.pause = function() {
-    if (this.stopped) return;
+    if (this.stopped || !this.process) return;
     this.process.kill('SIGSTOP');
     this.emit('pause');
 };
 
 module.exports.prototype.resume = function() {
-    if (this.stopped) return this.play();
+    if (this.stopped || !this.process) return this.play();
     this.process.kill('SIGCONT');
     this.emit('resume');
 };
